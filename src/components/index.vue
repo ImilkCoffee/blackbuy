@@ -190,7 +190,7 @@
                 <div class="wrap-box">
                     <ul class="img-list">
                         <li v-for="it in item.datas">
-                            <a href="#/site/goodsinfo/87" class="">
+                            <router-link :to="'/detail/'+it.artID">
                                 <div class="img-box">
                                     <img :src="it.img_url">
                                 </div>
@@ -205,7 +205,7 @@
                                         </span>
                                     </p>
                                 </div>
-                            </a>
+                            </router-link>
                         </li>
                     </ul>
                 </div>
@@ -229,7 +229,6 @@ export default {
     },
     created(){
         axios.get('http://111.230.232.110:8899/site/goods/gettopdata/goods').then(res=>{
-            console.log(res)
             this.catelist=res.data.message.catelist;
              this.sliderlist=res.data.message.sliderlist;
               this.toplist=res.data.message.toplist;
