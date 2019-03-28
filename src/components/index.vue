@@ -166,7 +166,7 @@
                                 </div>
                                 <div class="txt-box">
                                     <a href="/goods/show-98.html">骆驼男装2017秋季新款运动休闲纯色夹克青年宽松长袖针织开衫卫衣</a>
-                                    <span>{{item.add_time | formatTime}}</span>
+                                    <span>{{item.add_time | glformatTime}}</span>
                                 </div>
                             </li>
                            
@@ -216,8 +216,6 @@
 
 
 <script>
-import axios from 'axios'
-import moment from 'moment'
 export default {
     data(){
         return {
@@ -228,20 +226,15 @@ export default {
         }
     },
     created(){
-        axios.get('http://111.230.232.110:8899/site/goods/gettopdata/goods').then(res=>{
+        this.$axios.get('http://111.230.232.110:8899/site/goods/gettopdata/goods').then(res=>{
             this.catelist=res.data.message.catelist;
              this.sliderlist=res.data.message.sliderlist;
               this.toplist=res.data.message.toplist;
         }),
-        axios.get("http://111.230.232.110:8899/site/goods/getgoodsgroup").then(res=>{
+        this.$axios.get("/site/goods/getgoodsgroup").then(res=>{
             this.goodlist=res.data.message;
         })
     },
-    filters:{
-        formatTime(value){
-            return moment(value).format('YYYY-MM-DD')
-        }
-    }
 }
 </script>
    
