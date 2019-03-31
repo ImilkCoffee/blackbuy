@@ -20,7 +20,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 import index from './components/index.vue'
 import cart from './components/cart.vue'
-import detail from './components/detail'
+import detail from './components/detail.vue'
 //导入elmui
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
